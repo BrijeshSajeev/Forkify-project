@@ -32,20 +32,21 @@ try
    {
       //Getting id from -- Hashchange event
       const id = window.location.hash.slice(1);
-      recipeView.renderSpinner();
       
       if(!id) return;
       
-      //  FETCHING REQUEST..From model.js
-        await model.loadRecipe(id);         
-      // RENDERING REQUEST..in recipeView.js
-        recipeView.render(model.state.recipe);
-        
-        // Activating Results as active
+        recipeView.renderSpinner();;
+      // Activating Results as active
         resultView.update(model.getSearchResult())
         
         bookmarkView.update(model.state.bookmark);
-      
+        
+        //  FETCHING REQUEST..From model.js
+        await model.loadRecipe(id);         
+        
+        // RENDERING REQUEST..in recipeView.js
+        recipeView.render(model.state.recipe);
+        
      
     }
   catch(err)
