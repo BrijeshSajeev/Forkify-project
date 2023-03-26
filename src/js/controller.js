@@ -32,9 +32,9 @@ try
    {
       //Getting id from -- Hashchange event
       const id = window.location.hash.slice(1);
-      recipeView.renderSpinner();
       
       if(!id) return;
+      recipeView.renderSpinner();
       
       //  FETCHING REQUEST..From model.js
         await model.loadRecipe(id);         
